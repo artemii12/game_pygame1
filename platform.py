@@ -13,6 +13,7 @@ class Player(pygame.sprite.Sprite):
         self.pos1 = [True, None]
         self.pos2 = self.rect.x
         self.pos3 = self.rect.y
+        self.click = False
 
     def update_pos(self):
         if pygame.mouse.get_pressed()[0]:
@@ -27,5 +28,35 @@ class Player(pygame.sprite.Sprite):
         else:
             self.pos1 = [True, None]
 
-    def update(self):
-        self.update_pos()
+    def urt1(self):
+        if self.rect.centerx-25 < pygame.mouse.get_pos()[0] < self.rect.centerx+25 and not pygame.mouse.get_pressed()[0]:
+            if self.rect.centery - 25 < pygame.mouse.get_pos()[1] < self.rect.centery + 25:
+                if self.click:
+                    self.image.fill("#D7FBE8")
+                    self.click = False
+                else:
+                    self.image.fill("#D7FBE8")
+                    self.click = True
+
+    def urt2(self):
+        if self.rect.centerx-25 < pygame.mouse.get_pos()[0] < self.rect.centerx+25 and not pygame.mouse.get_pressed()[0]:
+            if self.rect.centery - 25 < pygame.mouse.get_pos()[1] < self.rect.centery + 25:
+                if self.click:
+                    print(1)
+                    #  self.image.fill("#1FAB89")
+                    self.click = False
+                else:
+                    print(2)
+                    #  self.image.fill("#1FAB89")
+                    self.click = True
+
+    def update(self, event_list):
+        for event in event_list:
+            self.update_pos()
+            if event.type == pygame.MOUSEBUTTONUP:
+                if event.button == 3:
+                    if self.rect.collidepoint(event.pos):
+                        self.urt2()
+
+
+
