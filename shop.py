@@ -62,7 +62,6 @@ class ShopBackground(pygame.sprite.Sprite):
         self.pos2 = self.rect.x
         self.pos3 = self.rect.y
 
-
     def update_pos(self):
         if pygame.mouse.get_pressed()[0]:
             if self.pos1[0]:
@@ -83,4 +82,3 @@ class ShopBackground(pygame.sprite.Sprite):
                 self.kill()
 
             variables.setMenu2 = False
-
