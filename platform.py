@@ -63,5 +63,4 @@ class Player(pygame.sprite.Sprite):
                 self.image.fill(self.colors)
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if event.button == 3:
-                        print(12)
                         self.urt2()

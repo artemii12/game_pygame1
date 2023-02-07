@@ -1,5 +1,8 @@
 import pygame
+
+
 from button import shop_bt_money, shop_bt_attack, shop_bt_protection
+from field_with_earnings.object_slot_one import resource_extraction
 import variables
 from variables import *
 from platform import Player
@@ -13,9 +16,12 @@ pygame.display.set_caption("My Game")
 clock = pygame.time.Clock()
 
 all_sprites = pygame.sprite.Group()
-
+slot_with_information = pygame.sprite.Group()
 platform = pygame.sprite.Group()
 buttonsGroup = pygame.sprite.Group()
+
+slot_with_information.add(resource_extraction())
+
 for i in range(len(rendering1)):
     a = randint(0, 10)
     if a == 5:
@@ -60,15 +66,19 @@ while running:
         if event.type == pygame.QUIT:
             running = False
         all_sprites.update(event_list)
+        slot_with_information.update(event_list)
+
 
     platform.update(event_list)
 
     buttonsGroup.update(event_list, all_sprites, ShopBackground)
     screen.fill('#00E0FF')
+    slot_with_information.update(event_list)
 
     platform.draw(screen)
     buttonsGroup.draw(screen)
     all_sprites.draw(screen)
+    slot_with_information.draw(screen)
     screen.blit(text, textpos)
     pygame.display.flip()
 
