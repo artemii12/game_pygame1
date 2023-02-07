@@ -1,11 +1,11 @@
 import pygame
-
-import button
+from button import shop_bt_money, shop_bt_attack, shop_bt_protection
 import variables
 from variables import *
 from platform import Player
-from shop import ShopBackground, Shop_button_exit
+from shop import ShopBackground, ShopBackgroundDop
 from random import randint
+
 pygame.init()
 pygame.mixer.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -34,6 +34,12 @@ for i in range(len(rendering2)):
     else:
         platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, '#1FAB89'))
 
+all_sprites.add(ShopBackground(info=False, x=HEIGHT+260, y=WIDTH-290),
+                ShopBackgroundDop(info=False, x=HEIGHT+260, y=WIDTH-290))
+
+all_sprites.add(shop_bt_money(info=False, x=HEIGHT+260, y=WIDTH-290),
+                shop_bt_attack(info=False, x=HEIGHT+260, y=WIDTH-290),
+                shop_bt_protection(info=False, x=HEIGHT+260, y=WIDTH-290))
 font = pygame.font.Font('Samson.ttf', 50)
 text = font.render(f'{coin} $', True, [255, 255, 255])
 textpos = (HEIGHT+300, 10)
@@ -42,11 +48,12 @@ while running:
     clock.tick(FPS)
     event_list = pygame.event.get()
     for event in event_list:
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                print(pygame.mouse.get_pos())
         if variables.setMenu2:
             print(43)
             variables.menu2_del = False
-            all_sprites.add(ShopBackground(info=False, x=variables.coord_XY[0], y=variables.coord_XY[1]))
-            all_sprites.add(Shop_button_exit(info=False, x=variables.coord_XY[0], y=variables.coord_XY[1]))
             all_sprites.update(event_list)
             variables.Menu2_activ = True
             variables.setMenu2 = False

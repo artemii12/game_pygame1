@@ -1,6 +1,4 @@
 import pygame
-from random import randint
-
 import variables
 
 
@@ -19,17 +17,20 @@ class Player(pygame.sprite.Sprite):
         self.click = True
 
     def update_pos(self):
-        if pygame.mouse.get_pressed()[0]:
-            if self.pos1[0]:
-                self.pos1[1] = pygame.mouse.get_pos()
-                self.pos2 = self.rect.x
-                self.pos3 = self.rect.y
-                self.pos1[0] = False
-            else:
-                self.rect.x = -(int(self.pos1[1][0]) - int(pygame.mouse.get_pos()[0]))+int(self.pos2)
-                self.rect.y = -(int(self.pos1[1][1]) - int(pygame.mouse.get_pos()[1])) + int(self.pos3)
-        else:
-            self.pos1 = [True, None]
+        if not ((variables.WIDTH-180)-180 < pygame.mouse.get_pos()[0] < (variables.WIDTH-180)+180 and
+                (variables.HEIGHT-145)-145 < pygame.mouse.get_pos()[1] < (variables.HEIGHT-145)+145):
+
+                if pygame.mouse.get_pressed()[0]:
+                    if self.pos1[0]:
+                        self.pos1[1] = pygame.mouse.get_pos()
+                        self.pos2 = self.rect.x
+                        self.pos3 = self.rect.y
+                        self.pos1[0] = False
+                    else:
+                        self.rect.x = -(int(self.pos1[1][0]) - int(pygame.mouse.get_pos()[0]))+int(self.pos2)
+                        self.rect.y = -(int(self.pos1[1][1]) - int(pygame.mouse.get_pos()[1])) + int(self.pos3)
+                else:
+                    self.pos1 = [True, None]
 
     def urt1(self):
         if self.rect.centerx-25 < pygame.mouse.get_pos()[0] < self.rect.centerx+25 and \
@@ -60,6 +61,7 @@ class Player(pygame.sprite.Sprite):
             self.update_pos()
             if not variables.Menu2_activ:
                 self.image.fill(self.colors)
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                if event.button == 3:
-                    self.urt2()
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if event.button == 3:
+                        print(12)
+                        self.urt2()
