@@ -1,9 +1,12 @@
 import pygame
+
+from slot_characteristics import slots_for_earning_money
+
 import variables
 
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self, x, y, colors):
+    def __init__(self, x, y, colors, serves):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.Surface((50, 50))
         self.image.fill(colors)
@@ -14,12 +17,13 @@ class Player(pygame.sprite.Sprite):
         self.pos2 = self.rect.x
         self.pos3 = self.rect.y
         self.click = True
+        self.serves = serves
 
     def update_pos(self):
         if not ((variables.WIDTH-180)-180 < pygame.mouse.get_pos()[0] < (variables.WIDTH-180)+180 and
                 (variables.HEIGHT-145)-145 < pygame.mouse.get_pos()[1] < (variables.HEIGHT-145)+145):
-
                 if pygame.mouse.get_pressed()[0]:
+                    variables.the_beginning_of_movement = True
                     if self.pos1[0]:
                         self.pos1[1] = pygame.mouse.get_pos()
                         self.pos2 = self.rect.x
@@ -29,6 +33,7 @@ class Player(pygame.sprite.Sprite):
                         self.rect.x = -(int(self.pos1[1][0]) - int(pygame.mouse.get_pos()[0]))+int(self.pos2)
                         self.rect.y = -(int(self.pos1[1][1]) - int(pygame.mouse.get_pos()[1])) + int(self.pos3)
                 else:
+                    variables.the_beginning_of_movement = False
                     self.pos1 = [True, None]
 
     def urt1(self):
@@ -54,6 +59,9 @@ class Player(pygame.sprite.Sprite):
                 variables.coord_XY = (self.rect.x, self.rect.y)
                 variables.setMenu2 = True
                 self.click = False
+
+    def characteristic(self):
+        slots_for_earning_money.mining_earnings.characteristic(self=self)
 
     def update(self, event_list):
         for event in event_list:

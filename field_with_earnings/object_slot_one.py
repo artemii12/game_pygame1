@@ -21,7 +21,7 @@ class resource_extraction2(pygame.sprite.Sprite):
             if self.click:
                 for i in range(len(variables.active_menu_point)):
                     if variables.active_menu_point[i]:
-                        variables.active_menu_point[i] =  False
+                        variables.active_menu_point[i] = False
                 variables.active_menu_point[self.class_field] = True
 
     def update(self, event_list):
@@ -32,8 +32,8 @@ class resource_extraction2(pygame.sprite.Sprite):
         for event in event_list:
             if event.type == pygame.MOUSEBUTTONUP:
                 if event.button == 1:
-                    self.urt1()
 
+                    self.urt1()
 
 class resource_extraction1(pygame.sprite.Sprite):
     def __init__(self):
@@ -57,8 +57,6 @@ class resource_extraction1(pygame.sprite.Sprite):
                     if variables.active_menu_point[i]:
                         variables.active_menu_point[i] = False
                 variables.active_menu_point[self.class_field] = True
-
-
 
     def update(self, event_list):
         if not variables.active_menu_point[self.class_field]:

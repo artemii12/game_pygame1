@@ -27,20 +27,20 @@ slot_with_information.add(resource_extraction1(),
 for i in range(len(rendering1)):
     a = randint(0, 10)
     if a == 5:
-        platform.add(Player((rendering1[i][0] * 50), (rendering1[i][1]) * 50, '#323232'))
+        platform.add(Player((rendering1[i][0] * 50), (rendering1[i][1]) * 50, '#323232', serves=1)) #  камень
     elif a == 3:
-        platform.add(Player((rendering1[i][0] * 50), (rendering1[i][1]) * 50, '#14FFEC'))
+        platform.add(Player((rendering1[i][0] * 50), (rendering1[i][1]) * 50, '#14FFEC', serves=2)) #  вода
     else:
-        platform.add(Player((rendering1[i][0] * 50), (rendering1[i][1]) * 50, '#1FAB89'))
+        platform.add(Player((rendering1[i][0] * 50), (rendering1[i][1]) * 50, '#1FAB89', serves=0)) #  пусто
 
 for i in range(len(rendering2)):
     a = randint(0, 10)
     if a == 5:
-        platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, '#323232'))
+        platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, '#323232', serves=1))
     elif a == 3:
-        platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, '#14FFEC'))
+        platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, '#14FFEC', serves=2))
     else:
-        platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, '#1FAB89'))
+        platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, '#1FAB89', serves=0))
 
 all_sprites.add(FullShopBackground(info=False, x=HEIGHT + 260, y=WIDTH - 290),
                 ShopBackground(info=False, x=HEIGHT+260, y=WIDTH-290),
