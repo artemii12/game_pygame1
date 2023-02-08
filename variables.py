@@ -1,11 +1,9 @@
+
 WIDTH = 1500
 HEIGHT = 1200
 FPS = 100
 coin = 100
-setMenu2 = False
-Menu2_activ = False
-menu2_del = False
-coord_XY = ()
+active_menu_point = []
 # Задаем цвета
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)

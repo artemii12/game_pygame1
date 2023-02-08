@@ -1,8 +1,41 @@
 import variables
 import pygame
 
+class resource_extraction2(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.Surface((50, 50))
+        self.image.fill("#FF2E63")
+        self.rect = self.image.get_rect()
+        self.rect.center = (variables.WIDTH-270, variables.HEIGHT-255)
+        self.click = True
+        self.active_site = False
+        variables.active_menu_point.append(False)
+        for i in range(len(variables.active_menu_point)):
+            self.class_field = i
 
-class resource_extraction(pygame.sprite.Sprite):
+    def urt1(self):
+        if self.rect.centerx - 25 < pygame.mouse.get_pos()[0] < self.rect.centerx + 25 and \
+            self.rect.centery - 25 < pygame.mouse.get_pos()[1] < self.rect.centery + 25 and \
+                not pygame.mouse.get_pressed()[0]:
+            if self.click:
+                for i in range(len(variables.active_menu_point)):
+                    if variables.active_menu_point[i]:
+                        variables.active_menu_point[i] =  False
+                variables.active_menu_point[self.class_field] = True
+
+    def update(self, event_list):
+        if not variables.active_menu_point[self.class_field]:
+            self.image.fill("#FF2E63")
+        if variables.active_menu_point[self.class_field]:
+            self.image.fill("#E4F9F5")
+        for event in event_list:
+            if event.type == pygame.MOUSEBUTTONUP:
+                if event.button == 1:
+                    self.urt1()
+
+
+class resource_extraction1(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.Surface((50, 50))
@@ -10,24 +43,30 @@ class resource_extraction(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.center = (variables.WIDTH-325, variables.HEIGHT-255)
         self.click = True
-
+        self.active_site = False
+        variables.active_menu_point.append(False)
+        for i in range(len(variables.active_menu_point)):
+            self.class_field = i
 
     def urt1(self):
-
         if self.rect.centerx - 25 < pygame.mouse.get_pos()[0] < self.rect.centerx + 25 and \
+            self.rect.centery - 25 < pygame.mouse.get_pos()[1] < self.rect.centery + 25 and \
                 not pygame.mouse.get_pressed()[0]:
             if self.click:
-                print(23)
-                self.image.fill("#E4F9F5")
-                self.click = False
-            elif not self.click:
-                pass
-                """print(12)
-                self.image.fill("#FF2E63")
-                self.click = True"""
+                for i in range(len(variables.active_menu_point)):
+                    if variables.active_menu_point[i]:
+                        variables.active_menu_point[i] = False
+                variables.active_menu_point[self.class_field] = True
+
+
 
     def update(self, event_list):
+        if not variables.active_menu_point[self.class_field]:
+            self.image.fill("#FF2E63")
+        if variables.active_menu_point[self.class_field]:
+            self.image.fill("#E4F9F5")
         for event in event_list:
             if event.type == pygame.MOUSEBUTTONUP:
                 if event.button == 1:
                     self.urt1()
+

@@ -4,7 +4,6 @@ import variables
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, x, y, colors):
-        global setMenu2
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.Surface((50, 50))
         self.image.fill(colors)
@@ -45,22 +44,22 @@ class Player(pygame.sprite.Sprite):
                     self.click = True
         """нажатие левой кнопки мыши"""
     def urt2(self):
-        if not variables.Menu2_activ:
-            if self.rect.centerx-25 < pygame.mouse.get_pos()[0] < self.rect.centerx+25 and \
-                    not pygame.mouse.get_pressed()[0]:
-                if self.rect.centery - 25 < pygame.mouse.get_pos()[1] < self.rect.centery + 25:
 
-                    print(1)
-                    self.image.fill("#E4F9F5")
-                    variables.coord_XY = (self.rect.x, self.rect.y)
-                    variables.setMenu2 = True
-                    self.click = False
+        if self.rect.centerx-25 < pygame.mouse.get_pos()[0] < self.rect.centerx+25 and \
+                not pygame.mouse.get_pressed()[0]:
+            if self.rect.centery - 25 < pygame.mouse.get_pos()[1] < self.rect.centery + 25:
+
+                print(1)
+                self.image.fill("#E4F9F5")
+                variables.coord_XY = (self.rect.x, self.rect.y)
+                variables.setMenu2 = True
+                self.click = False
 
     def update(self, event_list):
         for event in event_list:
             self.update_pos()
-            if not variables.Menu2_activ:
-                self.image.fill(self.colors)
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    if event.button == 3:
-                        self.urt2()
+
+            self.image.fill(self.colors)
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 3:
+                    self.urt2()

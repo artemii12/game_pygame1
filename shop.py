@@ -27,14 +27,13 @@ class ShopButtonExit(pygame.sprite.Sprite):
             self.pos1 = [True, None]
 
     def fording(self):
-        if variables.Menu2_activ:
-            if self.rect.centerx-25 < pygame.mouse.get_pos()[0] < self.rect.centerx+25:
-                if self.rect.centery - 12 < pygame.mouse.get_pos()[1] < self.rect.centery + 12:
+        if self.rect.centerx-25 < pygame.mouse.get_pos()[0] < self.rect.centerx+25:
+            if self.rect.centery - 12 < pygame.mouse.get_pos()[1] < self.rect.centery + 12:
 
-                    variables.Menu2_activ = False
-                    variables.coord_XY = ()
+                variables.Menu2_activ = False
+                variables.coord_XY = ()
 
-                    variables.menu2_del = True
+                variables.menu2_del = True
 
     def update(self, event_list):
         for event in event_list:
@@ -42,10 +41,6 @@ class ShopButtonExit(pygame.sprite.Sprite):
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
                     self.fording()
-            if variables.menu2_del:
-                self.kill()
-
-            variables.setMenu2 = False
 
 class ShopBackground(pygame.sprite.Sprite):
     def __init__(self, info, x, y):
@@ -66,10 +61,43 @@ class ShopBackground(pygame.sprite.Sprite):
 class ShopBackgroundDop(pygame.sprite.Sprite):
     def __init__(self, info, x, y):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.Surface((300, 300))
+        self.image = pygame.Surface((300, 228))
         self.image.fill("#455D7A")
         self.rect = self.image.get_rect()
-        self.rect.center = (x-170, y-150)
+        self.rect.center = (x-170, y-186)
+        self.activ = info
+        self.pos1 = [True, None]
+        self.pos2 = self.rect.x
+        self.pos3 = self.rect.y
+
+    def update(self, event_list):
+        for event in event_list:
+            pass
+
+class FullShopBackground(pygame.sprite.Sprite):
+    def __init__(self, info, x, y):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.Surface((376, 302))
+        self.image.fill("#FFFFFF")
+        self.rect = self.image.get_rect()
+        self.rect.center = (x-133, y-150)
+        self.activ = info
+        self.pos1 = [True, None]
+        self.pos2 = self.rect.x
+        self.pos3 = self.rect.y
+
+    def update(self, event_list):
+        for event in event_list:
+            pass
+
+
+class shop_background_bottom(pygame.sprite.Sprite):
+    def __init__(self, info, x, y):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.Surface((300, 70))
+        self.image.fill("#252A34")
+        self.rect = self.image.get_rect()
+        self.rect.center = (x-170, y-35)
         self.activ = info
         self.pos1 = [True, None]
         self.pos2 = self.rect.x
