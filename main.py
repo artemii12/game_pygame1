@@ -28,20 +28,20 @@ def main():
     for i in range(len(rendering1)):
         a = randint(0, 10)
         if a == 5:
-            platform.add(Player((rendering1[i][0] * 50), (rendering1[i][1]) * 50, '#323232', serves=1)) #  камень
+            platform.add(Player((rendering1[i][0] * 50), (rendering1[i][1]) * 50, colors='#323232', serves=1)) #  камень
         elif a == 3:
-            platform.add(Player((rendering1[i][0] * 50), (rendering1[i][1]) * 50, '#14FFEC', serves=2)) #  вода
+            platform.add(Player((rendering1[i][0] * 50), (rendering1[i][1]) * 50, colors='#14FFEC', serves=2)) #  вода
         else:
-            platform.add(Player((rendering1[i][0] * 50), (rendering1[i][1]) * 50, '#1FAB89', serves=0)) #  пусто
+            platform.add(Player((rendering1[i][0] * 50), (rendering1[i][1]) * 50, colors='#1FAB89', serves=0)) #  пусто
 
     for i in range(len(rendering2)):
         a = randint(0, 10)
         if a == 5:
-            platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, '#323232', serves=1))
+            platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, colors='#323232', serves=1))
         elif a == 3:
-            platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, '#14FFEC', serves=2))
+            platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, colors='#14FFEC', serves=2))
         else:
-            platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, '#1FAB89', serves=0))
+            platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, colors='#1FAB89', serves=0))
 
     all_sprites.add(FullShopBackground(info=False, x=HEIGHT + 260, y=WIDTH - 290),
                     ShopBackground(info=False, x=HEIGHT+260, y=WIDTH-290),
@@ -58,22 +58,21 @@ def main():
         event_list = pygame.event.get()
         for event in event_list:
             if activ_menu_info[0] == 1 and activ_menu_info[1]:
+                variables.active_menu_point1.clear()
                 slot_with_information.add(resource_extraction1(),
                                           resource_extraction2())
                 activ_menu_info[1] = False
                 print(activ_menu_info)
 
             if activ_menu_info[0] == 2 and activ_menu_info[1]:
-
+                variables.active_menu_point2.clear()
                 activ_menu_info[1] = False
                 print(activ_menu_info)
-
 
             if activ_menu_info[0] == 3 and activ_menu_info[1]:
-
+                variables.active_menu_point3.clear()
                 activ_menu_info[1] = False
                 print(activ_menu_info)
-
 
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
