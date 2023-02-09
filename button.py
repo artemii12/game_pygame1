@@ -15,7 +15,12 @@ class shop_bt_money(pygame.sprite.Sprite):
 
     def update(self, event_list):
         for event in event_list:
-            pass
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    if self.rect.centerx - 25 < pygame.mouse.get_pos()[0] < self.rect.centerx + 25:
+                        if self.rect.centery - 25 < pygame.mouse.get_pos()[1] < self.rect.centery + 25:
+                            variables.activ_menu_info[0] = 1
+                            variables.activ_menu_info[1] = True
 
 class shop_bt_attack(pygame.sprite.Sprite):
     def __init__(self, info, x, y):
@@ -31,7 +36,12 @@ class shop_bt_attack(pygame.sprite.Sprite):
 
     def update(self, event_list):
         for event in event_list:
-            pass
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    if self.rect.centerx - 25 < pygame.mouse.get_pos()[0] < self.rect.centerx + 25:
+                        if self.rect.centery - 25 < pygame.mouse.get_pos()[1] < self.rect.centery + 25:
+                            variables.activ_menu_info[0] = 2
+                            variables.activ_menu_info[1] = True
 
 class shop_bt_protection(pygame.sprite.Sprite):
     def __init__(self, info, x, y):
@@ -47,5 +57,9 @@ class shop_bt_protection(pygame.sprite.Sprite):
 
     def update(self, event_list):
         for event in event_list:
-            pass
-
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    if self.rect.centerx - 25 < pygame.mouse.get_pos()[0] < self.rect.centerx + 25:
+                        if self.rect.centery - 25 < pygame.mouse.get_pos()[1] < self.rect.centery + 25:
+                            variables.activ_menu_info[0] = 3
+                            variables.activ_menu_info[1] = True
