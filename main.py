@@ -54,13 +54,14 @@ def main():
     all_sprites.add(shop_bt_money(info=False),
                     shop_bt_attack(info=False),
                     shop_bt_protection(info=False))
-    all_sprites.add(pointer_field.Point(x=variables.coord_xy[0], y=variables.coord_xy[1]))
+    all_sprites.add(pointer_field.Point())
+
     def delet_cu():
         variables.active_menu_point1.clear()
         variables.active_menu_point2.clear()
         variables.active_menu_point3.clear()
     print("the application has started")
-    screen = pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN)
+    #  screen = pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN)
     running = True
     while running:
         clock.tick(FPS)
