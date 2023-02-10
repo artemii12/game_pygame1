@@ -2,10 +2,20 @@ import pygame
 from variables import coin
 import variables
 
-def text_now(font, text, pos, colors):
+def text_now(font, pos, colors):
     a = 0
-    text1 = font.render(text, True, colors)
-    for i in range(len(text)):
-        a += i
-    textpos = (pos[0]-(a*5), pos[1])
+    fg = {}
+    text = ''
+    text2 = []
+    for i in variables.resources:
+        if variables.resources[i] != 0:
+            fg[i] = variables.resources[i]
+
+    for i in fg:
+        text2 += f' {i}: {fg[i]} '
+    text1 = font.render(text.join(text2), True, colors)
+
+    textpos = (pos[0] - (a * 5)-500, pos[1])
     return text1, textpos
+
+

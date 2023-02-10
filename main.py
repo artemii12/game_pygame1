@@ -25,7 +25,7 @@ def main():
     buttonsGroup = pygame.sprite.Group()
     slot_with_information.add(resource_extraction1(),
                               resource_extraction2())
-    text1 = text.text_now(font=font, text=f'{coin} $', pos=(WIDTH - 100, 0), colors=[255, 255, 255])
+    text1 = text.text_now(font=font, pos=(WIDTH - 100, 0), colors=[255, 255, 255])
 
     for i in range(len(rendering1)):
         a = randint(0, 10)
@@ -92,7 +92,7 @@ def main():
                 running = False
             all_sprites.update(event_list)
             slot_with_information.update(event_list)
-            text1 = text.text_now(font=font, text=f'{variables.coin} $', pos=(WIDTH - 50, 0), colors=[255, 255, 255])
+            text1 = text.text_now(font=font, pos=(WIDTH - 50, 0), colors=[255, 255, 255])
             screen.blit(text1[0], text1[1])
         platform.update(event_list)
         buttonsGroup.update(event_list, all_sprites, ShopBackground)
