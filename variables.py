@@ -12,12 +12,12 @@
 5 = тестовое установления нового обьекта
 """
 
-WIDTH = 1500
-HEIGHT = 1200
+WIDTH = 1920
+HEIGHT = 1080
 FPS = 100
 coin = 100
 activ_menu_info = [1, False]
-
+coord_xy = (WIDTH+100, HEIGHT+100)
 active_menu_point1 = []
 active_menu_point2 = []
 active_menu_point3 = []

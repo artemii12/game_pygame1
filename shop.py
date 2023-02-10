@@ -1,13 +1,13 @@
 import pygame
 import variables
-
+from variables import HEIGHT, WIDTH
 class ShopButtonExit(pygame.sprite.Sprite):
-    def __init__(self, info, x, y):
+    def __init__(self, info):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.Surface((50, 25))
         self.image.fill("#11999E")
         self.rect = self.image.get_rect()
-        self.rect.center = (x+15, y-210)
+        self.rect.center = (WIDTH-45, HEIGHT-210)
         self.activ = info
         self.pos1 = [True, None]
         self.pos2 = self.rect.x
@@ -42,13 +42,13 @@ class ShopButtonExit(pygame.sprite.Sprite):
                 if event.button == 1:
                     self.fording()
 
-class ShopBackground(pygame.sprite.Sprite):
-    def __init__(self, info, x, y):
+class ShopBackground(pygame.sprite.Sprite):  # фон под кнопки выбора меню
+    def __init__(self, info):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.Surface((62, 300))
+        self.image = pygame.Surface((70, 300))
         self.image.fill("#455D7A")
         self.rect = self.image.get_rect()
-        self.rect.center = (x+13, y-150)
+        self.rect.center = (WIDTH-34, HEIGHT-150)
         self.activ = info
         self.pos1 = [True, None]
         self.pos2 = self.rect.x
@@ -59,12 +59,12 @@ class ShopBackground(pygame.sprite.Sprite):
             pass
 
 class ShopBackgroundDop(pygame.sprite.Sprite):
-    def __init__(self, info, x, y):
+    def __init__(self, info):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.Surface((300, 228))
         self.image.fill("#455D7A")
         self.rect = self.image.get_rect()
-        self.rect.center = (x-170, y-186)
+        self.rect.center = (WIDTH-220, HEIGHT-186)  # фон под товар
         self.activ = info
         self.pos1 = [True, None]
         self.pos2 = self.rect.x
@@ -75,12 +75,12 @@ class ShopBackgroundDop(pygame.sprite.Sprite):
             pass
 
 class FullShopBackground(pygame.sprite.Sprite):
-    def __init__(self, info, x, y):
+    def __init__(self, info):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.Surface((376, 302))
         self.image.fill("#FFFFFF")
         self.rect = self.image.get_rect()
-        self.rect.center = (x-133, y-150)
+        self.rect.center = (WIDTH-183, HEIGHT-150)
         self.activ = info
         self.pos1 = [True, None]
         self.pos2 = self.rect.x
@@ -90,14 +90,29 @@ class FullShopBackground(pygame.sprite.Sprite):
         for event in event_list:
             pass
 
-
-class shop_background_bottom(pygame.sprite.Sprite):
-    def __init__(self, info, x, y):
+class ShopBackgroundInfo(pygame.sprite.Sprite):
+    def __init__(self, info):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.Surface((300, 70))
+        self.image = pygame.Surface((375, 75))
+        self.image.fill("#455D7A")
+        self.rect = self.image.get_rect()
+        self.rect.center = (WIDTH-183, HEIGHT-339)
+        self.activ = info
+        self.pos1 = [True, None]
+        self.pos2 = self.rect.x
+        self.pos3 = self.rect.y
+
+    def update(self, event_list):
+        for event in event_list:
+            pass
+
+class ShopBackgroundBottom(pygame.sprite.Sprite):  # черный низ для кнопок черный
+    def __init__(self, info):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.Surface((300, 71))
         self.image.fill("#252A34")
         self.rect = self.image.get_rect()
-        self.rect.center = (x-170, y-35)
+        self.rect.center = (WIDTH-220, HEIGHT-36)
         self.activ = info
         self.pos1 = [True, None]
         self.pos2 = self.rect.x

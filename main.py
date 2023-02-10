@@ -1,5 +1,6 @@
 import pygame
 
+import pointer_field
 import variables
 from button import shop_bt_money, shop_bt_attack, shop_bt_protection
 from field_with_earnings.object_slot_one import \
@@ -7,7 +8,8 @@ from field_with_earnings.object_slot_one import \
 from variables import *
 from platform import Player
 from shop import ShopBackground, \
-    ShopBackgroundDop, shop_background_bottom, FullShopBackground
+    ShopBackgroundDop, ShopBackgroundBottom, \
+    FullShopBackground, ShopBackgroundInfo
 from random import randint
 import text
 def main():
@@ -43,34 +45,42 @@ def main():
         else:
             platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, colors='#1FAB89', serves=0))
 
-    all_sprites.add(FullShopBackground(info=False, x=HEIGHT + 260, y=WIDTH - 290),
-                    ShopBackground(info=False, x=HEIGHT+260, y=WIDTH-290),
-                    ShopBackgroundDop(info=False, x=HEIGHT+260, y=WIDTH-290),
-                    shop_background_bottom(info=False, x=HEIGHT+260, y=WIDTH-290))
+    all_sprites.add(FullShopBackground(info=False),
+                    ShopBackground(info=False),
+                    ShopBackgroundDop(info=False),
+                    ShopBackgroundBottom(info=False),
+                    ShopBackgroundInfo(info=False))
 
-    all_sprites.add(shop_bt_money(info=False, x=HEIGHT+260, y=WIDTH-290),
-                    shop_bt_attack(info=False, x=HEIGHT+260, y=WIDTH-290),
-                    shop_bt_protection(info=False, x=HEIGHT+260, y=WIDTH-290))
-
+    all_sprites.add(shop_bt_money(info=False),
+                    shop_bt_attack(info=False),
+                    shop_bt_protection(info=False))
+    all_sprites.add(pointer_field.Point(x=variables.coord_xy[0], y=variables.coord_xy[1]))
+    def delet_cu():
+        variables.active_menu_point1.clear()
+        variables.active_menu_point2.clear()
+        variables.active_menu_point3.clear()
+    print("the application has started")
+    screen = pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN)
     running = True
     while running:
         clock.tick(FPS)
         event_list = pygame.event.get()
         for event in event_list:
+
             if activ_menu_info[0] == 1 and activ_menu_info[1]:
-                variables.active_menu_point1.clear()
+                delet_cu()
                 slot_with_information.add(resource_extraction1(),
                                           resource_extraction2())
                 activ_menu_info[1] = False
                 print(activ_menu_info)
 
             if activ_menu_info[0] == 2 and activ_menu_info[1]:
-                variables.active_menu_point2.clear()
+                delet_cu()
                 activ_menu_info[1] = False
                 print(activ_menu_info)
 
             if activ_menu_info[0] == 3 and activ_menu_info[1]:
-                variables.active_menu_point3.clear()
+                delet_cu()
                 activ_menu_info[1] = False
                 print(activ_menu_info)
 
@@ -93,7 +103,6 @@ def main():
         slot_with_information.draw(screen)
         screen.blit(text1[0], text1[1])
         pygame.display.flip()
-
     pygame.quit()
 
 
