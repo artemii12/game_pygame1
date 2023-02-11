@@ -20,7 +20,6 @@
 WIDTH = 1920
 HEIGHT = 1080
 FPS = 100
-coin = 100
 activ_menu_info = [1, False]
 coord_xy = (WIDTH+100, HEIGHT+100)
 active_menu_point1 = []

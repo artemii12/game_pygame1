@@ -49,17 +49,16 @@ class Player(pygame.sprite.Sprite):
                 not pygame.mouse.get_pressed()[0]:
             if self.rect.centery - 25 < pygame.mouse.get_pos()[1] < self.rect.centery + 25:
                 if self.click:
-                    pygame.image.load('pixil-frame-0 (1).png').convert()
+                    pygame.image.load('img/ores/air.png').convert()
                     self.click = False
                 else:
-                    pygame.image.load('pixil-frame-0 (1).png').convert()
+                    pygame.image.load('img/ores/air.png').convert()
                     self.click = True
         """нажатие левой кнопки мыши"""
     def urt2(self):
         if self.rect.centerx-25 < pygame.mouse.get_pos()[0] < self.rect.centerx+25:
             if self.rect.centery - 25 < pygame.mouse.get_pos()[1] < self.rect.centery + 25:
                 self.characteristic()
-                print(variables.coin)
                 self.click = False
 
     def characteristic(self):
@@ -107,6 +106,7 @@ class Player(pygame.sprite.Sprite):
 
     def update(self, event_list):
         self.update_pos()
+        self.image = pygame.image.load(self.colors).convert()
         for event in event_list:
             if event.type == self.CHANGE_COLOR:
                 variables.resources[variables.objectInformationByNumber[self.serves]] += self.income

@@ -1,5 +1,4 @@
 import pygame
-from variables import coin
 import variables
 
 def text_now(font, pos, colors):
@@ -15,7 +14,7 @@ def text_now(font, pos, colors):
         text2 += f' {i}: {fg[i]} '
     text1 = font.render(text.join(text2), True, colors)
 
-    textpos = (pos[0] - (a * 5)-500, pos[1])
+    textpos = (pos[0] - (len(text.join(text2)) * 25), pos[1])
     return text1, textpos
 
 
