@@ -10,7 +10,7 @@ def object1():
     return cost, ore, income, placement, colors_now, hp, placement_now
 
 def object2():
-    cost = 350
+    cost = 100
     ore = 0
     income = 10
     placement = [6, 7]
@@ -20,7 +20,7 @@ def object2():
     return cost, ore, income, placement, colors_now, hp, placement_now
 
 def object3():
-    cost = 600
+    cost = 100
     ore = 0
     income = 10
     placement = [8, 9]

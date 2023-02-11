@@ -33,7 +33,7 @@ BLUE = (0, 0, 255)
 #  ::::::::::::::::::::::::::::::::::::::::::::::::
 """металы словарь"""
 objectInformationByNumber = {0: "air",
-                                1: "stone",
+                                1: "wood",
                                 2: "copper",
                                 3: "coal",
                                 4: "tin",
@@ -41,7 +41,8 @@ objectInformationByNumber = {0: "air",
                                 6: "titan",
                                 7: "tnt",
                                 8: "uranium",
-                                9: "iridium"
+                                9: "iridium",
+                                10: 'flint'
                              }
 resources = {'wood': 0,      # древесина
              'stone': 0,     # камень

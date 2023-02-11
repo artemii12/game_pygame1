@@ -31,28 +31,44 @@ def main():
     for i in range(len(rendering1)):
         a = randint(0, 10)
         if a == 1:
-            platform.add(Player((rendering1[i][0] * 50), (rendering1[i][1]) * 50, colors='img\\ores\\air.png', serves=1))  # камень
+            platform.add(Player((rendering1[i][0] * 50), (rendering1[i][1]) * 50, colors='img\\ores\\coal.png', serves=1))  # уголь
         elif a == 2:
             platform.add(Player((rendering1[i][0] * 50), (rendering1[i][1]) * 50, colors='img\\ores\\copper.png', serves=2))  # медь
         elif a == 4:
             platform.add(Player((rendering1[i][0] * 50), (rendering1[i][1]) * 50, colors='img\\ores\\tin.png', serves=4))  # олова
         elif a == 5:
             platform.add(Player((rendering1[i][0] * 50), (rendering1[i][1]) * 50, colors='img\\ores\\sand.png', serves=5))  # песок
+        elif a == 6:
+            platform.add(Player((rendering1[i][0] * 50), (rendering1[i][1]) * 50, colors='img\\ores\\flint.png', serves=10))  # кремень
+        elif a == 7:
+            platform.add(Player((rendering1[i][0] * 50), (rendering1[i][1]) * 50, colors='img\\ores\\iridium.png', serves=9))  # иридий
+        elif a == 8:
+            platform.add(Player((rendering1[i][0] * 50), (rendering1[i][1]) * 50, colors='img\\ores\\uranium.png', serves=8))  # уран
+        elif a == 9:
+            platform.add(Player((rendering1[i][0] * 50), (rendering1[i][1]) * 50, colors='img\\ores\\coal.png', serves=3))  # уголь
         else:
             platform.add(Player((rendering1[i][0] * 50), (rendering1[i][1]) * 50, colors='img\\ores\\air.png', serves=0))  # пусто
 
     for i in range(len(rendering2)):
         a = randint(0, 10)
         if a == 1:
-            platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, colors='img\\ores\\air.png', serves=1))  # камень
+            platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, colors='img\\ores\\coal.png', serves=1))  # уголь
         elif a == 2:
             platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, colors='img\\ores\\copper.png', serves=2))  # медь
         elif a == 4:
             platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, colors='img\\ores\\tin.png', serves=4))  # олова
         elif a == 5:
             platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, colors='img\\ores\\sand.png', serves=5))  # песок
+        elif a == 6:
+            platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, colors='img\\ores\\flint.png', serves=10))  # кремень
+        elif a == 7:
+            platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, colors='img\\ores\\iridium.png', serves=9))  # иридий
+        elif a == 8:
+            platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, colors='img\\ores\\uranium.png', serves=8))  # уран
+        elif a == 9:
+            platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, colors='img\\ores\\coal.png', serves=3))  # уголь
         else:
-            platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, colors='img\\ores\\air.png', serves=0))
+            platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, colors='img\\ores\\air.png', serves=0))  # пусто
 
     all_sprites.add(FullShopBackground(info=False),
                     ShopBackground(info=False),
