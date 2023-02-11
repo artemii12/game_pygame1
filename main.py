@@ -4,7 +4,7 @@ import pointer_field
 import variables
 from button import shop_bt_money, shop_bt_attack, shop_bt_protection
 from field_with_earnings.object_slot_one import \
-    resource_extraction1, resource_extraction2
+    resource_extraction1, resource_extraction2, resource_extraction3
 from variables import *
 from platform import Player
 from shop import ShopBackground, \
@@ -24,26 +24,27 @@ def main():
     platform = pygame.sprite.Group()
     buttonsGroup = pygame.sprite.Group()
     slot_with_information.add(resource_extraction1(),
-                              resource_extraction2())
+                              resource_extraction2(),
+                              resource_extraction3())
     text1 = text.text_now(font=font, pos=(WIDTH - 100, 0), colors=[255, 255, 255])
 
     for i in range(len(rendering1)):
         a = randint(0, 10)
         if a == 5:
-            platform.add(Player((rendering1[i][0] * 50), (rendering1[i][1]) * 50, colors='#323232', serves=1)) #  камень
+            platform.add(Player((rendering1[i][0] * 50), (rendering1[i][1]) * 50, colors='pixil-frame-0 (1).png', serves=1)) #  камень
         elif a == 3:
-            platform.add(Player((rendering1[i][0] * 50), (rendering1[i][1]) * 50, colors='#14FFEC', serves=2)) #  вода
+            platform.add(Player((rendering1[i][0] * 50), (rendering1[i][1]) * 50, colors='img\\ores\\copper.png', serves=2)) #  медь
         else:
-            platform.add(Player((rendering1[i][0] * 50), (rendering1[i][1]) * 50, colors='#1FAB89', serves=0)) #  пусто
+            platform.add(Player((rendering1[i][0] * 50), (rendering1[i][1]) * 50, colors='pixil-frame-0 (1).png', serves=0)) #  пусто
 
     for i in range(len(rendering2)):
         a = randint(0, 10)
         if a == 5:
-            platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, colors='#323232', serves=1))
+            platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, colors='pixil-frame-0 (1).png', serves=1))
         elif a == 3:
-            platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, colors='#14FFEC', serves=2))
+            platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, colors='pixil-frame-0 (1).png', serves=2))
         else:
-            platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, colors='#1FAB89', serves=0))
+            platform.add(Player((rendering2[i][0] * 50), (rendering2[i][1]) * 50, colors='pixil-frame-0 (1).png', serves=0))
 
     all_sprites.add(FullShopBackground(info=False),
                     ShopBackground(info=False),
@@ -71,7 +72,8 @@ def main():
             if activ_menu_info[0] == 1 and activ_menu_info[1]:
                 delet_cu()
                 slot_with_information.add(resource_extraction1(),
-                                          resource_extraction2())
+                                          resource_extraction2(),
+                                          resource_extraction3())
                 activ_menu_info[1] = False
                 print(activ_menu_info)
 
