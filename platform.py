@@ -87,7 +87,7 @@ class Player(pygame.sprite.Sprite):
                     self.hp = save[5]
                     self.now_serves = save[6]
                     self.image = pygame.image.load(self.colors).convert()
-            if self.a == 2:  # какой слот выбран
+            if self.a == 3:  # какой слот выбран
                 save = mining_earnings.object3()  # открытие def для взятие характеристики
                 if self.serves in save[3] and variables.resources['copper'] >= save[0]:
                     """определение вида платформы информация в variables и определение стоимости продукта"""
